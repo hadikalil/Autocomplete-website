@@ -113,6 +113,9 @@ body {
   }
   #searched{
     position: absolute;
+    margin-left: -30px;
+    width: 350px;
+
 
   }
 
@@ -122,11 +125,23 @@ body {
 }
 
 #searched li:nth-child(odd){
+  
 	background-color: rgba(185, 185, 185, 0.5);
-	border-radius: 5px;
+  border-radius: 5px;
+  
+  transition: all 0.5s;
+  box-shadow: 0 0 40px #f9d442b9;
+  border-color: #f9d342;
+  outline: none;
+
 	
 }
 #searched li:nth-child(even){
 	background-color: rgba(212, 183, 67, 0.15);
-	border-radius: 5px;
+  border-radius: 5px;
+  transition: all 0.5s;
+  box-shadow: 0 0 40px #ffffffb9;
+  border-color: #ffffff;
+  outline: none;
+	
 }
