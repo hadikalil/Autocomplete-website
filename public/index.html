@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Glowing Search Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+  </head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <form role="search" method="get" class="search-form form" action="">
+        <label>
+            <span class="screen-reader-text">Search for...</span>
+            <input type="search" class="search-field" placeholder="Type something..." value="" name="s" title="" autocomplete="off"/>
+        </label>
+        <input type="submit" class="search-submit button" value="&#xf002" />
+    </form>
+    <br>
+    <ul id="searched"></ul>
+    <ul id="list"></ul>
+    </div>
+  </div>
+
+
+
+    <script src="public/script.js"></script>
+
+  </body>
+</html>
