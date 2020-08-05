@@ -83,6 +83,7 @@ function searchOnSubmit(e) {
       searchInput
     })
     .then(res => {
+      console.log(res);
       gifImg = res.data.data[0].images.fixed_height_downsampled.url;
       console.log(gifImg);
 

@@ -52,79 +52,9 @@ function badRequest(request, response) {
 }
 
 
-function autoComplet(request, response) {
-
-
-
-    let body = "";
-    // callback runs every time the stream has the next bit of data
-    request.on("data", chunk => {
-        body += chunk;
-    });
-    request.on("end", () => {
-
-
-        let mainDictionaryPath = path.join(__dirname, "..", "public", "words_dictionary.json");
-        fs.readFile(mainDictionaryPath, 'utf-8', (error, data) => {
-           // console.log(body);
-            if (error) {
-                badRequest(request, response);
-                return;
-            }
-            //.toLowerCase()
-            const objData = JSON.parse(data)//
-            const arrData = Object.keys(objData)
-            const str = JSON.parse(body).text
-         //   let filteredArray = arrData.filter(el => el.includes(str));
-            let filteredArray = arrData.filter(el => el.indexOf(str) === 0);
-
-           // console.log(filteredArray);
-
-            response.writeHead(200, { "content-type": "text/html" });
-            response.end(JSON.stringify(filteredArray))
-           // response.end(JSON.stringify(JSON.parse(data).a))
-
-
-        })
-
-        // var newArray = arr.filter(callback(object[, ind[, array]])[, Arg])
-
-        // console.log(body); // we should have the whole request body now
-        // response.writeHead(200, { "content-type": "application/json" });
-        // response.end(body)
-    });
-
-}
 
 
 
 
 
-
-function gitIt(request, response) {
-
-
-    let body = "";
-    // callback runs every time the stream has the next bit of data
-    request.on("data", chunk => {
-        body += chunk;
-    });
-    request.on("end", () => {
-        let searchInput = JSON.parse(body).searchInput // (body).searchInput => the searchInput is the value and the key from the incoming body of requst  
-        console.log(searchInput);
-      
-        axios
-        .get( `https://api.giphy.com/v1/gifs/search?api_key=CtRkwRRCXZUwnsVMt8IrHQpZUX0cEdLg&q=${searchInput}&limit=1`)
-        .then(res =>{
-           let sendItoFront = res.data
-           response.end(JSON.stringify(sendItoFront))
-        } )
-        .catch(err => console.error(err))
-       
-    })
-}
-
-
-
-
-module.exports = { home, notFound, publicHandler, autoComplet, gitIt };
+module.exports = { home, notFound, publicHandler};

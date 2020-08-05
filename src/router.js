@@ -1,5 +1,6 @@
 const handlers = require("./handlers");
-
+const autoComplet = require("./autoComplet")
+const gitIt = require("./gitIt")
 
 function router(request, response) {
 
@@ -11,10 +12,10 @@ function router(request, response) {
     handlers.publicHandler(request, response);
   }
   else if (url === '/autoComplet' && request.method === "POST"){
-    handlers.autoComplet(request, response)
+    autoComplet(request, response)
   }
   else if (url === '/gitIt' && request.method === "POST"){
-    handlers.gitIt(request, response)
+    gitIt(request, response)
   }
   else handlers.notFound(request, response);
 
